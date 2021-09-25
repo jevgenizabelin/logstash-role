@@ -1,2 +1,8 @@
 ---
-# handlers file for logstash-role
+- name: restart Logstash
+  become: true
+  service:
+    name: logstash
+    state: restarted
+    enabled: true
+  when: ansible_virtualization_type != 'docker'
