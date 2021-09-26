@@ -1,8 +1,8 @@
 ---
 - name: restart Logstash
   become: true
-  service:
-    name: logstash
+  ansible.builtin.systemd:
+    name: logstash.service
     state: restarted
     enabled: true
   when: ansible_virtualization_type != 'docker'

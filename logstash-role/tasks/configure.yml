@@ -2,7 +2,7 @@
 - name: Configure Logstash
   become: true
   template:
-    src: logstash.yml.j2
+    src: logstash-syslog.conf.j2
     mode: 0644
-    dest: /etc/logstash/logstash.yml
+    dest: /etc/logstash/conf.d/logstash-syslog.conf
   notify: restart Logstash

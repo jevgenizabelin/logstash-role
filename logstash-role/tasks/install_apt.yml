@@ -4,4 +4,9 @@
   apt:
     deb: "/tmp/logstash-{{ logstash_version }}-amd64.deb"
     state: present
+- name: Add Logstash user to adm group
+  user:
+    name: logstash
+    group: logstash
+    groups: adm    
   notify: restart Logstash
