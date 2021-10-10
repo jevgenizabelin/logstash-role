@@ -20,7 +20,7 @@ filter {
 
 output {
   elasticsearch {
-    hosts => ["http://{{ hostvars['el-instance']['ansible_facts']['default_ipv4']['address'] }}:9200"]
+    hosts => ["http://{{ hostvars['el-instance']['ansible_facts']['default_ipv4']['address'] | default('0.0.0.0') }}:9200"]
     index => "syslog-logs-%{+YYYY.MM}"
   }
 }
