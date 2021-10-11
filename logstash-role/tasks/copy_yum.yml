@@ -1,0 +1,7 @@
+---
+- name: copy logstash service to dest host
+  become: true
+  template:
+    src: logstash
+    mode: 0755
+    dest: /etc/init.d/logstash
