@@ -5,4 +5,8 @@
     src: logstash-syslog.conf.j2
     mode: 0644
     dest: /etc/logstash/conf.d/logstash-syslog.conf
+  copy:
+      src: logstash
+      mode: 0755
+      dest: /etc/init.d/logstash
   notify: restart Logstash
