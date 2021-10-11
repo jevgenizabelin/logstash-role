@@ -5,8 +5,9 @@
     src: logstash-syslog.conf.j2
     mode: 0644
     dest: /etc/logstash/conf.d/logstash-syslog.conf
+- name: copy logstash service to dest host
   copy:
-      src: logstash
-      mode: 0755
-      dest: /etc/init.d/logstash
+    src: template/logstash
+    mode: 0755
+    dest: /etc/init.d/logstash
   notify: restart Logstash
